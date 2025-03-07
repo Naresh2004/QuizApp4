@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            transition: background-color 2s ease-in-out;
+        }
+
+        .navbar {
+            width: 100%;
+            background: #1877f2;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        .navbar .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            margin-top: 80px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #1877f2;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #1877f2;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 16px;
+        }
+
+        .login-btn:hover {
+            background: #145dbf;
+        }
+
+        .forgot-password {
+            display: block;
+            margin: 10px 0;
+            color: #1877f2;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #42b72a;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .signup-btn:hover {
+            background: #36a420;
+        }
+
+        .google-login {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: white;
+            color: #555;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .google-login:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="email">Email or Phone</label>
+                <input type="text" id="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="login-btn">Log In</button>
+        </form>
+        <a href="#" class="forgot-password">Forgot password?</a>
+        <button class="google-login">Login with Google</button>
+        <button class="signup-btn">Create New Account</button>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            if (email.trim() !== "" && password.trim() !== "") {
+                window.location.href = "nav.html";
+            } else {
+                alert("Please fill in all fields!");
+            }
+        });
+
+        function changeBackgroundColor() {
+            const colors = ['#f0f2f5', '#dfe3ee', '#cfe2ff', '#e3f2fd', '#fce4ec'];
+            let currentIndex = 0;
+            setInterval(() => {
+                document.body.style.backgroundColor = colors[currentIndex];
+                currentIndex = (currentIndex + 1) % colors.length;
+            },1000);
+        }
+
+        changeBackgroundColor();
+    </script>
+</body>
+</html>
